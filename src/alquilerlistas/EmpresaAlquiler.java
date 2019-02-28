@@ -238,16 +238,18 @@ public class EmpresaAlquiler {
 
     }
     
-    public ArrayList generacionVehiculos(){
-        for (int i = 0; i < 50; i++) {
+    //un ArrayList de vehiculos donde genera 25 vehiculos aleatorios
+    public ArrayList<Vehiculos> generacionVehiculos(){
+        for (int i = 0; i < 25; i++) {
             this.vehiculos.add(Vehiculos.generarVehiculos());
             this.totalVehiculos++;
         }
         return this.vehiculos;
     }
     
-    public ArrayList generacionClientes(){
-        for (int i = 0; i < 50; i++) {
+    //un ArrayList de clientes donde genera 25 clientes aleatorios
+    public ArrayList<Clientes> generacionClientes(){
+        for (int i = 0; i < 25; i++) {
             this.clientes.add(Clientes.clienteAleatorio());
             this.totalClientes++;
         }
