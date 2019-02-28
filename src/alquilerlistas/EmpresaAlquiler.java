@@ -6,6 +6,7 @@
 package alquilerlistas;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 /* FALTAN LOS MÉTODOS DE ORDENACIÓN POR LA BURBUJA Y LA BÚSQUEDA BINARIA */
 
 /**
@@ -22,18 +23,18 @@ public class EmpresaAlquiler {
     //atributos para controlar el total de clientes que tiene la
     //empresa y array de almacenamiento para los objetos Clientes
     private int totalClientes;
-    private Clientes[] clientes;
+    private ArrayList <Clientes> clientes;
 
     //atributos para controlar el total de vehiculos disponibles en
     //alquiler que tiene la empresa y array de almacenamiento para los objetos
     //Vehiculos
     private int totalVehiculos;
-    private Vehiculos[] vehiculos;
+    private ArrayList <Vehiculos> vehiculos;
 
     //atributos para controlar el histórico de alquileres: total de
     //alquileres realizados y array de almacenamiento para los objetos VehiculosAlquilados
     private int totalAlquileres;
-    private VehiculosAlquilados[] alquileres;
+    private ArrayList <VehiculosAlquilados> alquileres;
 
     EmpresaAlquiler(String cif, String nombre, String paginaWeb) {
         this.cif = cif;
@@ -42,22 +43,22 @@ public class EmpresaAlquiler {
 
         //incialmente no hay clientes creados en la empresa
         this.totalClientes = 0;
-        this.clientes = new Clientes[50]; //apuntan a null
+        this.clientes = new ArrayList <Clientes>(50); //apuntan a null
 
         //incialmente no hay vehiculos creados en la empresa
         this.totalVehiculos = 0;
-        this.vehiculos = new Vehiculos[50]; //apuntan a null
+        this.vehiculos = new ArrayList <Vehiculos>(50); //apuntan a null
 
         //incialmente no hay histórico de alquileres en la empresa
         this.totalAlquileres = 0;
-        this.alquileres = new VehiculosAlquilados[100]; //apuntan a null
+        this.alquileres = new ArrayList <VehiculosAlquilados> (100); //apuntan a null
     }
 
     //metodo para agregar un nuevo cliente
     public void registrarCliente(Clientes nuevo) {
         //lo guardamos en el array en la posicion de totalClientes que esta
         //inicializada a 0
-        this.clientes[this.totalClientes] = nuevo;
+        this.clientes.add(totalClientes, nuevo);
 
         //autoincrementamos totalClientes, para que podamos agregar nuevos clientes
         //y no se machaquen 
@@ -68,7 +69,7 @@ public class EmpresaAlquiler {
     public void registrarVehiculo(Vehiculos nuevo) {
         //guardamos el nuevo cliente en el array en la posicion 0, ya que antes
         //inicializamos la variable totalVehiculos a 0
-        this.vehiculos[this.totalVehiculos] = nuevo;
+        this.vehiculos.add(totalClientes, nuevo);
 
         //lo autoincrementamos para poder registrar nuevos vehiculos y no se machaque
         this.totalVehiculos++;
@@ -79,7 +80,7 @@ public class EmpresaAlquiler {
 
         System.out.println("NIF cliente\tNombre\n");
         for (int i = 0; i < this.totalClientes; i++) {
-            System.out.println(clientes[i]);
+            System.out.println(clientes.get(i));
         }
     }
 
@@ -89,15 +90,15 @@ public class EmpresaAlquiler {
         System.out.println("Matricula\tModelo\tColor\tImporte\tDisponible\n");
 
         for (int i = 0; i < this.totalVehiculos; i++) {
-            System.out.println(vehiculos[i]);
+            System.out.println(vehiculos.get(i));
         }
     }
 
     //metodo para buscar un cliente
     private Clientes getCliente(String nif) {
         for (int i = 0; i < this.getTotalClientes(); i++) {
-            if (this.clientes[i].getNif().equals(nif)) {
-                return this.clientes[i];
+            if (this.clientes.get(i).getNif().equals(nif)) {
+                return this.clientes.get(i);
             }
         }
         return null;
@@ -135,11 +136,11 @@ public class EmpresaAlquiler {
         this.totalClientes = totalClientes;
     }
 
-    public Clientes[] getClientes() {
+    public ArrayList<Clientes> getClientes() {
         return clientes;
     }
 
-    public void setClientes(Clientes[] clientes) {
+    public void setClientes(ArrayList<Clientes> clientes) {
         this.clientes = clientes;
     }
 
@@ -151,11 +152,11 @@ public class EmpresaAlquiler {
         this.totalVehiculos = totalVehiculos;
     }
 
-    public Vehiculos[] getVehiculos() {
+    public ArrayList<Vehiculos> getVehiculos() {
         return vehiculos;
     }
 
-    public void setVehiculos(Vehiculos[] vehiculos) {
+    public void setVehiculos(ArrayList<Vehiculos> vehiculos) {
         this.vehiculos = vehiculos;
     }
 
@@ -167,11 +168,11 @@ public class EmpresaAlquiler {
         this.totalAlquileres = totalAlquileres;
     }
 
-    public VehiculosAlquilados[] getAlquileres() {
+    public ArrayList<VehiculosAlquilados> getAlquileres() {
         return alquileres;
     }
 
-    public void setAlquileres(VehiculosAlquilados[] alquileres) {
+    public void setAlquileres(ArrayList <VehiculosAlquilados> alquileres) {
         this.alquileres = alquileres;
     }
 
@@ -180,8 +181,8 @@ public class EmpresaAlquiler {
     private Vehiculos getVehiculo(String matricula) {
         
         for (int i = 0; i < this.getTotalVehiculos(); i++) {
-            if (this.vehiculos[i].getMatricula().equals(matricula)) {
-                return this.vehiculos[i];
+            if (this.vehiculos.get(i).getMatricula().equals(matricula)) {
+                return this.vehiculos.get(i);
             }
         }
         
@@ -201,7 +202,7 @@ public class EmpresaAlquiler {
         
         if (vehiculo.isDisponibilidad()) {
             vehiculo.setDisponibilidad(false);
-            this.alquileres[this.totalAlquileres]= new VehiculosAlquilados(cliente,vehiculo,diaHoy(), mesHoy(), añoHoy(), dias);
+            this.alquileres.add(new VehiculosAlquilados(cliente,vehiculo,diaHoy(), mesHoy(), añoHoy(), dias)) ;
             this.totalAlquileres++;
         }
     }
@@ -237,17 +238,17 @@ public class EmpresaAlquiler {
 
     }
     
-    public Vehiculos [] generacionVehiculos(){
+    public ArrayList generacionVehiculos(){
         for (int i = 0; i < 50; i++) {
-            this.vehiculos [i] = Vehiculos.generarVehiculos();
+            this.vehiculos.add(Vehiculos.generarVehiculos());
             this.totalVehiculos++;
         }
         return this.vehiculos;
     }
     
-    public Clientes [] generacionClientes(){
+    public ArrayList generacionClientes(){
         for (int i = 0; i < 50; i++) {
-            this.clientes [i] = Clientes.clienteAleatorio();
+            this.clientes.add(Clientes.clienteAleatorio());
             this.totalClientes++;
         }
         return this.clientes;
