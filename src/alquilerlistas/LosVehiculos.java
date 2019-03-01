@@ -20,7 +20,9 @@ public class LosVehiculos {
         listaAndres.generacionClientes();
         listaAndres.generacionVehiculos();
         
-        
+        //muestro los 25 clientes y los 25 vehiculos
+        listaAndres.imprimirClientes();
+        listaAndres.imprimirVehiculos();
         
     }
 
