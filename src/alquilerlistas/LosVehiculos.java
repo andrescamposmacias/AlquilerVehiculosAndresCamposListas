@@ -50,6 +50,9 @@ public class LosVehiculos {
         //el cliente alquilara el vehiculo que pide el numero de dias que quiere si el vehiculo no esta
         //alquilado
         listaAndres.alquilarVehiculo(matricula, nif, alquiler);
+        
+        //ordenos los clientes segun su nif
+        listaAndres.ordenarCarteraClientes();
     }
 
 }
