@@ -299,4 +299,10 @@ public class EmpresaAlquiler {
         return this.clientes.indexOf(nif);     
     }
     
+    //metodo para buscar una matricula del vehiculo
+    public int busquedaMatricula(String matricula){
+        //si encuentra la matricula, devolvera su posicion, en caso contrario devolvera -1
+        return this.vehiculos.indexOf(matricula);     
+    }
+    
 }
