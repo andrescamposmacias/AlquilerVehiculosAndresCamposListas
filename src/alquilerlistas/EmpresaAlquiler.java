@@ -256,4 +256,25 @@ public class EmpresaAlquiler {
         return this.clientes;
     }
     
+    //metodo para ordenar la lista
+    public void ordenarCarteraClientes(){
+        //creo un objeto de clientes
+        Clientes tmp = new Clientes();
+        
+        //creo el metodo de ordenacion
+        for (int i = 0; i < this.clientes.size()-1; i++) {
+            for (int j = i+1; j < this.clientes.size(); j++) {
+                //comparo los nif, si sale un numero negativo o 0 significa que el nif de i es mayor que el de j
+                //entra dentro del if y lo cambia
+                if(this.clientes.get(i).getNif().compareTo(this.clientes.get(j).getNif()) >= 0){
+                    tmp = this.clientes.get(i);
+                    this.clientes.set(i, this.clientes.get(j));
+                    this.clientes.set(j, tmp);
+                }
+            }
+        }
+    }
+    
+    
+    
 }
