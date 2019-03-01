@@ -56,6 +56,24 @@ public class LosVehiculos {
         
         //ordenar los vehiculos segun su matricula
         listaAndres.ordenarCatalogoVehiculos();
+        
+        teclado.nextLine();//Limpiamos buffer
+        
+        //pedimos el nif de nuevo al usuario
+        System.out.println("Introduce el nif");
+        nif = teclado.nextLine();
+        
+        //ahora buscamos al cliente por el nif y lo mostramos
+        System.out.println(listaAndres.busquedaNif(nif));
+        
+        teclado.nextLine();//Limpiamos buffer
+        
+        //pedimos la matricula de nuevo al usuario
+        System.out.println("Introduce la matricula");
+        matricula = teclado.nextLine();
+        
+        //ahora buscamos al vehiculo por la matricula y lo mostramos
+        System.out.println(listaAndres.busquedaMatricula(matricula));
     }
 
 }
