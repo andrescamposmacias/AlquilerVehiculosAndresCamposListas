@@ -397,6 +397,15 @@ public class Vehiculos {
         this.tarifa = tarifa;
         this.disponibilidad = disponibilidad;
     }
+    
+    public Vehiculos() {
+        this.matricula = "";
+        this.marca = "";
+        this.modelo = "";
+        this.color = "";        
+        this.tarifa = 0;
+        this.disponibilidad = true;
+    }
 
     @Override
     public String toString() {
