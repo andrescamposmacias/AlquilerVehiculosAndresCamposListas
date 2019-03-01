@@ -13,6 +13,13 @@ public class LosVehiculos {
     
     public static void main(String[] args) {
         
+        //Creo un objeto de EmpresaAlquiler
+        EmpresaAlquiler listaAndres = new EmpresaAlquiler("Domotica", "Andrés", "www.domoticaandres.com");
+        
+        //relleno las listas con los clientes y los vehiculos
+        listaAndres.generacionClientes();
+        listaAndres.generacionVehiculos();
+        
         
         
     }
