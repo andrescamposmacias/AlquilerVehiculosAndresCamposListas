@@ -166,6 +166,10 @@ public class Clientes {
         this.nif = nif;
     }
 
-    
+    public Clientes(){
+        this.nombre = "";
+        this.apellidos = "";
+        this.nif = "";
+    }
     
 }
