@@ -53,6 +53,9 @@ public class LosVehiculos {
         
         //ordenos los clientes segun su nif
         listaAndres.ordenarCarteraClientes();
+        
+        //ordenar los vehiculos segun su matricula
+        listaAndres.ordenarCatalogoVehiculos();
     }
 
 }
