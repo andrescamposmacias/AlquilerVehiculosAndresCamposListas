@@ -293,4 +293,10 @@ public class EmpresaAlquiler {
         }
     }
     
+    //metodo para buscar un nif del cliente
+    public int busquedaNif(String nif){
+        //si encuentra el cliente, devolvera su posicion, en caso contrario devolvera -1
+        return this.clientes.indexOf(nif);     
+    }
+    
 }
