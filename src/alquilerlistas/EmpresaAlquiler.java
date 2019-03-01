@@ -256,7 +256,7 @@ public class EmpresaAlquiler {
         return this.clientes;
     }
     
-    //metodo para ordenar la lista
+    //metodo para ordenar la lista de clientes
     public void ordenarCarteraClientes(){
         //creo un objeto de clientes
         Clientes tmp = new Clientes();
@@ -275,6 +275,22 @@ public class EmpresaAlquiler {
         }
     }
     
-    
+    //metodo para ordenar la lista de vehiculos
+    public void ordenarCatalogoVehiculos(){
+        //creo un objeto de vehiculos
+        Vehiculos tmp = new Vehiculos("", "", "", "", 15, true);
+        
+        //creo el metodo de ordenacion de burbuja
+        for (int i = 0; i < this.vehiculos.size()-1; i++) {
+            for (int j = i+1; j < this.vehiculos.size(); j++) {
+                //comparo las matriculas de los vehiculos, si sale negativo o 0 entra dentro del if para cambiar el orden
+                if(this.vehiculos.get(i).getMatricula().compareTo(this.vehiculos.get(j).getMatricula()) >= 0){
+                    tmp = this.vehiculos.get(i);
+                    this.vehiculos.set(i, this.vehiculos.get(j));
+                    this.vehiculos.set(j, tmp);
+                }
+            }
+        }
+    }
     
 }
