@@ -295,14 +295,52 @@ public class EmpresaAlquiler {
     
     //metodo para buscar un nif del cliente
     public int busquedaNif(String nif){
+
         //si encuentra el cliente, devolvera su posicion, en caso contrario devolvera -1
-        return this.clientes.indexOf(nif);     
+        int mitad = 0;
+        int limiteInferior = 0;
+        int limiteSuperior = this.clientes.size() - 1;
+        boolean encontrado = false;
+        while ((limiteInferior <= limiteSuperior) && (!encontrado)) {
+            mitad = (limiteInferior + limiteSuperior) / 2;
+            if (this.clientes.get(mitad).equals(nif)) {
+                encontrado = true; // ¡encontrado!    
+            } else if (this.clientes.get(mitad).getNif().compareTo(nif) > 0) {
+                limiteSuperior = mitad - 1; // buscar en la primera mitad
+            } else {
+                limiteInferior = mitad + 1; // buscar en la segunda mitad
+            }
+        }
+        if (encontrado) {
+            return mitad;
+        } else {
+            return -1;
+        }
     }
     
     //metodo para buscar una matricula del vehiculo
     public int busquedaMatricula(String matricula){
+        
         //si encuentra la matricula, devolvera su posicion, en caso contrario devolvera -1
-        return this.vehiculos.indexOf(matricula);     
+        int mitad = 0;
+        int limiteInferior = 0;
+        int limiteSuperior = this.vehiculos.size() - 1;
+        boolean encontrado = false;
+        while ((limiteInferior <= limiteSuperior) && (!encontrado)) {
+            mitad = (limiteInferior + limiteSuperior) / 2;
+            if (this.vehiculos.get(mitad).equals(matricula)) {
+                encontrado = true; // ¡encontrado!    
+            } else if (this.vehiculos.get(mitad).getMatricula().compareTo(matricula) > 0) {
+                limiteSuperior = mitad - 1; // buscar en la primera mitad
+            } else {
+                limiteInferior = mitad + 1; // buscar en la segunda mitad
+            }
+        }
+        if (encontrado) {
+            return mitad;
+        } else {
+            return -1;
+        }    
     }
     
 }
