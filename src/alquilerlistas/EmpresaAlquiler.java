@@ -303,7 +303,7 @@ public class EmpresaAlquiler {
         boolean encontrado = false;
         while ((limiteInferior <= limiteSuperior) && (!encontrado)) {
             mitad = (limiteInferior + limiteSuperior) / 2;
-            if (this.clientes.get(mitad).equals(nif)) {
+            if (this.clientes.get(mitad).getNif().equals(nif)) {
                 encontrado = true; // ¡encontrado!    
             } else if (this.clientes.get(mitad).getNif().compareTo(nif) > 0) {
                 limiteSuperior = mitad - 1; // buscar en la primera mitad
@@ -328,7 +328,7 @@ public class EmpresaAlquiler {
         boolean encontrado = false;
         while ((limiteInferior <= limiteSuperior) && (!encontrado)) {
             mitad = (limiteInferior + limiteSuperior) / 2;
-            if (this.vehiculos.get(mitad).equals(matricula)) {
+            if (this.vehiculos.get(mitad).getMatricula().equals(matricula)) {
                 encontrado = true; // ¡encontrado!    
             } else if (this.vehiculos.get(mitad).getMatricula().compareTo(matricula) > 0) {
                 limiteSuperior = mitad - 1; // buscar en la primera mitad
