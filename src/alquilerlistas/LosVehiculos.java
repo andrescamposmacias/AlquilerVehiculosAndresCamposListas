@@ -34,13 +34,11 @@ public class LosVehiculos {
         System.out.println("Introduce su NIF");
         nif = teclado.nextLine();
         
-        teclado.nextLine();//Limpiamos buffer
         
         //pedimos la matricula
         System.out.println("Introduce la matricula del vehiculo");
         matricula = teclado.nextLine();
         
-        teclado.nextLine();//Limpiamos buffer
         
         //y por ultimo pedimos el numero de dia de alquiler
         System.out.println("Introduce el número de dias de alquiler");
@@ -65,8 +63,6 @@ public class LosVehiculos {
         
         //ahora buscamos al cliente por el nif y lo mostramos
         System.out.println(listaAndres.busquedaNif(nif));
-        
-        teclado.nextLine();//Limpiamos buffer
         
         //pedimos la matricula de nuevo al usuario
         System.out.println("Introduce la matricula");
